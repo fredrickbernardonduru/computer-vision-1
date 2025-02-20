@@ -32,19 +32,3 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))  # Normalize for RGB images
 ])
 
-# Load dataset with your path
-image_dir = r"C:\Users\Fredrich Bernard\Desktop\Online Writing\Pullman\2025\Computer Vision\Data\image"
-dataset = CustomImageDataset(image_dir=image_dir, transform=transform)
-
-# Split into training and validation sets
-train_size = int(0.8 * len(dataset))
-val_size = len(dataset) - train_size
-train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
-
-# Data loaders
-batch_size = 32
-train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
-
-# Check dataset
-print(f"Dataset loaded: {len(dataset)} images")
